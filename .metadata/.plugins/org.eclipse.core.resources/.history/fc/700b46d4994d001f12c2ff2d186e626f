@@ -1,0 +1,36 @@
+package assignment;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+
+public class Evaluation1 {
+
+	public static void main(String[] args) throws InterruptedException {
+		
+		WebDriver driver = new ChromeDriver();
+		driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
+		driver.manage().window().maximize();
+		Thread.sleep(2000);
+		driver.findElement(By.xpath("//input[@name='username']")).sendKeys("Admin");
+		
+		driver.findElement(By.xpath("//input[@name='password']")).sendKeys("admin123");
+		
+		driver.findElement(By.xpath("//button[@type='submit']")).click();
+		Thread.sleep(2000);
+		driver.findElement(By.xpath("(//a[@class='oxd-main-menu-item'])[1]")).click();
+		//driver.findElement(By.xpath(""));
+		Thread.sleep(2000);
+		driver.findElement(By.xpath("//li[@class='oxd-topbar-body-nav-tab --parent --visited']")).click();
+		driver.findElement(By.xpath("//a[@role='menuitem']")).click();
+		driver.findElement(By.xpath("//input[@placeholder='Type for hints...']")).sendKeys("Ranga");
+		Thread.sleep(2000);
+		driver.findElement(By.linkText("Ranga  Akunuri")).click();
+		
+		
+		
+	}
+
+}
