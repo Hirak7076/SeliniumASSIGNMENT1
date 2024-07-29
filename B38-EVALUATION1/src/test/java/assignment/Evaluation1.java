@@ -31,16 +31,14 @@ public class Evaluation1 {
 		Thread.sleep(2000);
 		driver.findElement(By.xpath("//input[@placeholder='Type for hints...']")).sendKeys("Ranga Akunuri");
 		Thread.sleep(2000);
-		//List<WebElement> ele = driver.findElements(By.xpath("//div[@class-'oxd-autocomplete-dropdown --positon-botton']"));
-		//for (WebElement element : ele) {
-
-			// System.out.println(ele.getText());
-
-			//if (element.getText().equals("Ranga Akunuri")) {
-			//	Thread.sleep(2000);
-			//	element.click();
-			//}
-		//}
+		List<WebElement> elements = driver.findElements(By.xpath("//div[@role='listbox']//div[@role='option']"));
+		for (WebElement ele : elements) {
+			if (ele.getText().contains("Ranga Akunuri")) {
+				Thread.sleep(2000);
+				ele.click();
+			}
+		}
+		Thread.sleep(2000);
 		driver.findElement(By.xpath("//p[@class='oxd-userdropdown-name']")).click();
 		driver.findElement(By.xpath("(//a[@class='oxd-userdropdown-link'])[4]")).click();
 
